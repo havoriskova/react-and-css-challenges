@@ -3,24 +3,23 @@ import Grid from "./Grid";
 
 function App() {
 
-function randomColor() {
+function randomPastelColor() {
         {/*funkce na random barvu, co bude různě v elementech, 
-        a to přes CSS custom property  --root-random-color,
-        jen bacha na to, že to bude vždy tmavší barva */}
-        
-        let r = Math.floor(Math.random()*255);
-        let g = Math.floor(Math.random()*255);
-        let b = Math.floor(Math.random()*255);
-        let color = `rgb(${r}, ${g}, ${b})`;
+        a to přes CSS custom property  --root-random-color */}
+      let h = Math.floor(Math.random() * 360);
+      let s = Math.floor(Math.random() * 20) + 50;
+      let l = Math.floor(Math.random() * 15) + 70;
+
+       let color = `hsl(${h}, ${s}%, ${l}%)`;
 
         document.querySelector(":root").style.setProperty("--root-random-color", color);
       }
 
-      randomColor(); // initial call
+      randomPastelColor(); // initial call
 
   return (
     <div className="App">
-      <header className="App-header" onClick={randomColor}>
+      <header className="App-header" onClick={randomPastelColor}>
     <h1>Galery of my CSS &#38; React challenges</h1> 
       </header>
 
