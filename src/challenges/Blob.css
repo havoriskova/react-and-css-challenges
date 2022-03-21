@@ -1,0 +1,337 @@
+.Blob.frame {
+  --blob-primary: rgba(166, 214, 214, 1);
+  --blob-secondary: rgba(237, 237, 208, 0.9);
+  display: grid;
+  place-items: center;
+  animation: blob-background-color 10s cubic-bezier(0.15, -0.93, 0.84, 1.64)
+    infinite alternate;
+}
+
+.center {
+  width: 30%;
+  height: 30%;
+  /*   background: blue; */
+  position: relative;
+}
+
+.Blob .circle,
+.Blob .octagon,
+.Blob .triangle,
+.Blob .circle2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: var(--blob-secondary);
+  /*  animation-duration: 10s; - nejde mi to nastavit pro všechny tady jednotně */
+}
+
+.Blob .circle {
+  border-radius: 50%;
+  /* background: red;
+  z-index: 100; */
+  animation: blob-circle 10s infinite ease-in-out;
+}
+
+.Blob .octagon {
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+  animation: blob-octagon 10s infinite ease-in-out;
+}
+
+.Blob .triangle {
+  clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+  animation: blob-triangle 10s infinite cubic-bezier(0.5, 0.1, 0.5, 2);
+}
+
+.Blob .circle2 {
+  border-radius: 50%;
+  /*background: red;
+  z-index: 100; */
+  animation: blob-circle2 10s infinite ease-in-out;
+}
+
+.Blob .kruh {
+  background: transparent;
+  position: absolute;
+  height: 150%;
+  width: 150%;
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 6px var(--blob-secondary);
+  box-shadow: inset 0 0 10px 10px var(--blob-secondary);
+  opacity: 0;
+  animation: blob-kruh 10s ease-in-out infinite;
+}
+
+.Blob .containery-pro-konfety * {
+  background: red;
+  position: absolute;
+  width: 6px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% top;
+  transform: translateX(-50%) translateY(60px);
+  z-index: 100;
+  border-radius: 4px;
+}
+
+.Blob .k-octa * {
+  background: rgba(200, 200, 200, 0.01);
+  z-index: 200;
+  overflow: hidden;
+}
+
+.Blob .k-octa *::after {
+  /*tohle jsou až ty konfety, co se animací dostanou z jednoho konce svýho parent elementu na druhej konec díky translateY*/
+  background: var(--blob-secondary);
+  width: 100%;
+  height: 50%;
+  content: "";
+  z-index: 400;
+  position: absolute;
+  animation: blob-octa-k 10s infinite ease-in-out;
+  transform: translateY(-100%); /*-100% a 250% jsou mimo*/
+  border-radius: 5px;
+  box-shadow: 0 0 10px 3px var(--blob-secondary);
+}
+
+.Blob .k-trouh * {
+  background: rgba(200, 200, 200, 0.001);
+  z-index: 300;
+  overflow: hidden;
+}
+
+.Blob .k-trouh *::after {
+  /*tohle jsou až ty konfety, co se animací dostanou z jednoho konce svýho parent elementu na druhej konec díky translateY*/
+  background: var(--blob-secondary);
+  width: 100%;
+  height: 50%;
+  content: "";
+  z-index: 400;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 3px var(--blob-secondary);
+  animation: blob-trouh-k 10s infinite ease-in-out forwards;
+}
+
+.Blob .container-pro-konfeta-o1 {
+  /*důležité pořadí! nejprv rotace, a až pak přesunutí na ose Y*/
+  transform: translateX(-50%) rotate(calc(180deg / 4)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-o2 {
+  transform: translateX(-50%) rotate(calc(180deg / 2)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-o3 {
+  transform: translateX(-50%) rotate(calc(180deg / 1.33)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-o4 {
+  transform: translateX(-50%) rotate(calc(180deg)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-o5 {
+  transform: translateX(-50%) rotate(calc(180deg * 1.25)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-o6 {
+  transform: translateX(-50%) rotate(calc(180deg * 1.5)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-o7 {
+  transform: translateX(-50%) rotate(calc(180deg * 1.75)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-t1 {
+  transform: translateX(-50%) rotate(calc(180deg * 1.75)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-t2 {
+  transform: translateX(-50%) rotate(calc(180deg / 4)) translateY(60px);
+}
+
+.Blob .container-pro-konfeta-t3 {
+  transform: translateX(-50%) rotate(180deg) translateY(60px);
+}
+
+.Blob .card:hover .center * {
+  animation-play-state: paused; /*MUHAHAHAHAHAHA*/
+}
+
+.Blob .card:hover {
+  background: #fcd1d1;
+}
+
+@keyframes blob-circle {
+  0% {
+    opacity: 1;
+    transform: translateY(-220%) scale(1) scaleY(1.1);
+  }
+  8% {
+    transform: translateY(70%) scaleY(0.5);
+  }
+  15% {
+    transform: translateY(-40%) scale(1);
+  }
+  20% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  30%,
+  100% {
+    opacity: 1;
+    transform: scale(0.001);
+  }
+}
+
+@keyframes blob-octagon {
+  0%,
+  30% {
+    opacity: 1;
+    transform: scale(0.001) rotate(0);
+  }
+  35%,
+  38% {
+    transform: scale(1) rotate(67deg);
+  }
+  39% {
+    transform: scale(0.9) rotate(67deg);
+  }
+  42% {
+    transform: scale(1.5) rotate(67deg);
+  } /*tady vytrysknou konfety*/
+  44% {
+    transform: scale(1) rotate(67deg);
+  }
+  50%,
+  100% {
+    opacity: 1;
+    transform: rotate(0) scale(0.001);
+  }
+}
+
+@keyframes blob-octa-k {
+  0%,
+  38% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(185%);
+  }
+  55%,
+  100% {
+    opacity: 0;
+    transform: translateY(185%);
+  }
+}
+
+@keyframes blob-triangle {
+  0%,
+  50% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  57% {
+    transform: scale(1.3);
+  } /*tady vytrysknou konfety*/
+  60% {
+    transform: scale(0.8);
+  }
+  70%,
+  100% {
+    opacity: 1;
+    transform: scale(0);
+  }
+}
+
+@keyframes blob-trouh-k {
+  0%,
+  48% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(185%);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: translateY(185%);
+  }
+}
+
+@keyframes blob-circle2 {
+  0%,
+  70% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  75% {
+    transform: scale(1);
+  }
+  78% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(1.3);
+  } /*tady vytryskne kruh*/
+  83% {
+    transform: scale(1);
+  }
+  91% {
+    transform: scaleY(0.8) translateY(-50%);
+  }
+  99%,
+  100% {
+    opacity: 1;
+    transform: translateY(220%);
+  }
+}
+
+@keyframes blob-kruh {
+  0%,
+  78% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  83% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  85%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.7);
+  }
+}
+
+@keyframes blob-background-color {
+  from {
+    background: var(--blob-primary);
+  }
+  to {
+    background: #a6b1e1;
+  }
+}

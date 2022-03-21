@@ -1,0 +1,78 @@
+.Circles.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--root-random-color);
+}
+
+.Circles .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  /* background: black; */
+  height: 200px;
+  width: 200px;
+}
+
+.Circles .dot {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+  /* animation-fill-mode: both; */
+}
+
+.Circles .dot1 {
+  width: 150px;
+  height: 150px;
+  animation: circles-dot1-moves 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite
+    alternate;
+  background: #f9f9f9;
+}
+
+.Circles .dot2 {
+  width: 100px;
+  height: 100px;
+  animation: circles-dot2-moves 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite
+    alternate;
+  background: #f7dbf0;
+}
+
+.Circles .dot3 {
+  width: 50px;
+  height: 50px;
+  animation: circles-dot3-moves 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite
+    alternate;
+  background: #beaee2;
+}
+
+@keyframes circles-dot1-moves {
+  0%,
+  10% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes circles-dot2-moves {
+  0%,
+  40% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes circles-dot3-moves {
+  0%,
+  70% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

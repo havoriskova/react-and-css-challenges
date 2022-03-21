@@ -1,0 +1,200 @@
+div.Loader {
+  --loader-ball-color: #ccf6c8;
+  --loader-background-color: #34626c;
+  /*filter: contrast(6) hue-rotate(10deg);*/
+  animation: loader-filter 10s both infinite;
+  background-color: var(--loader-background-color);
+}
+
+.Loader .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Loader .ball {
+  background: #fff;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.Loader .moving-big {
+  /*tohle je to malý čtverec, kolem kterého se bude točit velkej ::after pseudo efekt*/
+  z-index: 3;
+  width: 10px;
+  height: 10px;
+  background: trasparent;
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: green purple green purple;
+  top: 30px;
+  left: 30px;
+  animation: loader-rotate-forever 4s linear infinite;
+  /*díky linear se to nepauzne po dodělání kolečka */
+}
+
+@keyframes loader-rotate-forever {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-rotate-forever-backwards {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.Loader .moving-big:nth-of-type(2) {
+  left: 45px;
+  top: 35px;
+  animation-delay: 1.2s;
+}
+
+.Loader .moving-big:nth-of-type(3) {
+  left: 30px;
+  top: 51px;
+  animation-delay: 0.5s;
+  animation: loader-rotate-forever-backwards 4s linear infinite;
+}
+.Loader .moving-big::after {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: yellow;
+  content: "";
+  top: 0;
+  left: 0;
+  filter: blur(7px);
+}
+
+.Loader .moving-small {
+  /*velký čtverec, kolem kterýho se bude otáčet malý ::after kolečko*/
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  position: absolute;
+  border-color: green purple green purple;
+  border-style: solid;
+  border-width: 5px;
+  animation: loader-rotate-forever 4s linear infinite;
+}
+
+.Loader .moving-small:nth-of-type(5) {
+  top: -20px;
+  left: -30px;
+  animation-delay: 2.5s;
+  animation-duration: 3s;
+}
+
+.Loader .moving-small:nth-of-type(6) {
+  top: 40px;
+  left: -50px;
+  animation-delay: 0.7s;
+}
+
+.Loader .moving-small:nth-of-type(7) {
+  top: 70px;
+  left: 20px;
+  animation-delay: 1.4s;
+}
+
+.Loader .moving-small:nth-of-type(8) {
+  top: -20px;
+  left: 70px;
+  width: 130px;
+  animation-delay: 0.3s;
+  animation: loader-rotate-forever-backwards 4s linear infinite;
+}
+
+.Loader .moving-small:nth-of-type(9) {
+  top: -80px;
+  left: 40px;
+  width: 130px;
+  animation-delay: 0.4s;
+}
+
+.Loader .moving-small:nth-of-type(10) {
+  top: -80px;
+  left: -60px;
+  height: 140px;
+}
+
+.Loader .moving-small:nth-of-type(11) {
+  top: 30px;
+  width: 200px;
+  animation: loader-rotate-forever-backwards 3.5s linear infinite;
+}
+
+.Loader .moving-small::after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: yellow;
+  content: "";
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+.Loader .moving-small:nth-of-type(5)::after {
+  width: 15px;
+  height: 15px;
+  bottom: 0;
+  right: 0;
+}
+.Loader .moving-small:nth-of-type(6)::after {
+  width: 15px;
+  height: 15px;
+  right: 0;
+}
+
+.Loader .moving-small:nth-of-type(8)::after {
+  width: 30px;
+  height: 30px;
+  bottom: 0;
+  left: -10px;
+}
+
+.Loader .moving-small:nth-of-type(9)::after {
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+}
+
+.Loader .moving-small:nth-of-type(10)::after {
+  width: 15px;
+  height: 15px;
+  bottom: 0;
+  right: 0;
+}
+
+.Loader .ball,
+.Loader .moving-big::after,
+.Loader .moving-small::after {
+  background: var(--loader-ball-color);
+}
+
+.Loader .moving-big,
+.Loader .moving-small {
+  border-color: transparent;
+}
+
+@keyframes loader-filter {
+  from {
+    filter: contrast(6) hue-rotate(0deg);
+  }
+  to {
+    filter: contrast(6) hue-rotate(360deg);
+  }
+}

@@ -1,0 +1,15 @@
+div.Grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 1rem;
+}
+
+div.Grid > * {
+  aspect-ratio: 1 / 1;
+  background-color: lightgreen;
+  border-radius: 5%;
+  overflow: hidden;
+  box-shadow: 0.1rem 0.2rem 0.5rem 0 rgba(0 0 0 / 0.1);
+  position: relative;
+}
