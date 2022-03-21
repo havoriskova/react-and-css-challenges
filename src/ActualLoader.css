@@ -1,0 +1,97 @@
+.ActualLoader.frame {
+  --actualLoader-background: var(--body-background-color);
+  --actualLoader-pac-man: #f7ea6d;
+  --actualLoader-speed: 1.2s;
+  width: 50%;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ActualLoader .pacman {
+  background: var(--actualLoader-pac-man);
+  width: 50%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: grid;
+  place-items: center;
+}
+
+.ActualLoader .mouth {
+  position: absolute;
+  width: 55%;
+  height: 50%;
+  top: 25%;
+  left: 50%;
+  background: var(--body-background-color);
+  clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+  animation: actualLoader-mouth var(--actualLoader-speed) linear both infinite;
+}
+
+@keyframes actualLoader-mouth {
+  0%,
+  100% {
+    clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(0% 50%, 100% 50%, 100% 50%);
+  }
+}
+
+.ActualLoader .eye {
+  position: absolute;
+  background-color: var(--actualLoader-pac-man);
+  width: 50%;
+  aspect-ratio: 1 / 1;
+  animation: actualLoader-eye var(--actualLoader-speed) linear infinite;
+}
+
+.ActualLoader .eye::after {
+  content: "";
+  position: absolute;
+  background: var(--body-background-color);
+  width: 20%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  right: 10%;
+}
+
+@keyframes actualLoader-eye {
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+
+.ActualLoader .food {
+  position: absolute;
+  width: 70%;
+  height: 7%;
+  top: 47%;
+  right: 1%; /*-15% a 1% - hodnoty, kdy na stejném místě se vystřídají dvě tečky, pak adžasnout podle otvírající se pusy */
+  display: flex;
+  justify-content: space-between;
+  animation: actualLoader-eating var(--actualLoader-speed) forwards linear
+    infinite;
+}
+
+.ActualLoader .food * {
+  background: var(--actualLoader-pac-man);
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+@keyframes actualLoader-eating {
+  0% {
+    right: -18%;
+  }
+  100% {
+    right: -2%;
+  }
+}

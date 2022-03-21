@@ -1,11 +1,20 @@
+import React, {useState} from 'react';
 import './App.css';
 import Grid from "./Grid";
+import ActualLoader from "./ActualLoader";
 
 function App() {
 
+  let [isLoading, setLoading] = useState(true);
+
+  setTimeout(() => {setLoading(false)}, 3000); 
+ // useEffect ?? 
+// lehce snížit opacity před úplným zmizením? Renderovat <App/> a <ActualLoader /> současně,
+// a pak jen prohodit opacity ??
+
 function randomPastelColor() {
-        {/*funkce na random barvu, co bude různě v elementech, 
-        a to přes CSS custom property  --root-random-color */}
+     //  funkce na random barvu, co bude různě v elementech, 
+    // a to přes CSS custom property  --root-random-color
       let h = Math.floor(Math.random() * 360);
       let s = Math.floor(Math.random() * 20) + 50;
       let l = Math.floor(Math.random() * 15) + 70;
@@ -17,6 +26,8 @@ function randomPastelColor() {
 
       randomPastelColor(); // initial call
 
+
+if (!isLoading) {
   return (
     <div className="App">
       <header className="App-header" onClick={randomPastelColor}>
@@ -32,6 +43,9 @@ function randomPastelColor() {
       </footer>
     </div>
   );
+} else {
+  return <ActualLoader />
+}
 }
 
 export default App;
