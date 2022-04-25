@@ -10,10 +10,6 @@
   box-sizing: border-box;
 }
 
-/* .App {
-  text-align: center;
-} */
-
 .App-header {
   /*min-height: 100vh;*/
   display: flex;
@@ -36,6 +32,7 @@
 
 .App-footer {
   padding: 1rem;
+  text-align: center;
 }
 
 .App-footer p {

@@ -21,27 +21,28 @@
 
 
 .Cube .cube-base {
-    background-color: rgba(255, 0, 0, .5);
+    /*background-color: rgba(255, 0, 0, .5);*/
     position: absolute;
     width: var(--size);
     height: var(--size);
     transition: all 2s ease-in-out;
     cursor: pointer;
     transform-style: preserve-3d;
-    /*házíš to do 3d*/
+    transform: rotate(20deg) rotateY(-20deg);
 }
 
 .Cube .cube-base:hover {
-    transform: rotate(250deg);
+    transform: rotate(250deg) rotateX(200deg);
 }
 
 
 .Cube .side {
-    background-color: rgba(41, 216, 94, 0.5);
+    /* background-color: hsl(188, 100%, 60%); */
+    box-shadow: 0 0 10px 10px #000 inset;
     width: var(--size);
     height: var(--size);
     position: absolute;
-    opacity: .5;
+    opacity: .7;
     transform-style: preserve-3d;
     display: grid;
     place-items: center;
@@ -56,32 +57,32 @@
 
 .Cube .up {
     /*pokud si chceš hrát s opacity, musíš přidat víc specifičtější selektor*/
-    background-color: rgb(255, 202, 235);
+    background-color: hsl(188, 100%, 30%);
     /* opacity: .8; */
     transform: rotateX(90deg) translateZ(calc(var(--size-z) / 2));
 }
 
 .Cube .bottom {
-    background-color: rgb(57, 157, 190);
+    background-color: hsl(188, 100%, 50%);
     transform: rotateX(-90deg) translateZ(calc(var(--size-z) / 2));
 }
 
 .Cube .left {
-    background-color: rgb(255, 52, 61);
+    background-color: hsl(188, 100%, 20%);
     transform: rotateY(270deg) translateZ(calc(var(--size-z) / 2));
 }
 
 .Cube .right {
-    background-color: rgb(42, 116, 141);
+    background-color: hsl(188, 100%, 40%);
     transform: rotateY(90deg) translateZ(calc(var(--size-z) / 2));
 }
 
 .Cube .front {
-    background-color: rgb(28, 95, 117);
+    background-color: hsl(188, 100%, 70%);
     transform: translateZ(calc(var(--size-z) / 2));
 }
 
 .Cube .back {
-    background-color: rgb(79, 122, 136);
+    background-color: hsl(188, 100%, 80%);
     transform: rotateY(180deg) translateZ(calc(var(--size-z) / 2));
 }
