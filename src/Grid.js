@@ -2,6 +2,7 @@ import "./Grid.css";
 import Loader from "./challenges/Loader";
 import Circles from "./challenges/Circles";
 import Blob from "./challenges/Blob";
+import Cube from "./challenges/Cube";
 
 export default function Grid() {
 
@@ -13,7 +14,7 @@ export default function Grid() {
             <Loader />
             <Circles />
             <Blob />
-
+            <Cube />
         </div>
     )
 }
