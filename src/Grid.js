@@ -3,6 +3,7 @@ import Loader from "./challenges/Loader";
 import Circles from "./challenges/Circles";
 import Blob from "./challenges/Blob";
 import Cube from "./challenges/Cube";
+import Cursor from "./challenges/Cursor";
 
 export default function Grid() {
 
@@ -15,6 +16,7 @@ export default function Grid() {
             <Circles />
             <Blob />
             <Cube />
+            <Cursor />
         </div>
     )
 }
