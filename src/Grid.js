@@ -4,6 +4,7 @@ import Circles from "./challenges/Circles";
 import Blob from "./challenges/Blob";
 import Cube from "./challenges/Cube";
 import Cursor from "./challenges/Cursor";
+import Egg from "./challenges/Egg";
 
 export default function Grid() {
 
@@ -17,6 +18,7 @@ export default function Grid() {
             <Blob />
             <Cube />
             <Cursor />
+            <Egg />
         </div>
     )
 }

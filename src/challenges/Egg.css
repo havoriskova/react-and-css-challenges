@@ -1,0 +1,44 @@
+.Egg.frame {
+display: grid;
+place-items: center;
+}
+
+.Egg.frame::after {
+content: "";
+position: absolute;
+/* background-color: rgba(0 0 0 / .2); */
+width: 50%;
+height: 100%;
+left: 0;
+}
+
+.falling-egg {
+    /* z-index: 2; */
+    background-color: white;
+    position: absolute;
+    width: 30%;
+    height: 40%;
+    /* border-radius: 50px 50px 50px 50px / 80px 80px 50px 50px; */
+    border-top-left-radius: 60% 80%; /*X Y zaoblení*/
+    border-top-right-radius: 60% 80%;
+    border-bottom-right-radius: 50% 40%;
+    border-bottom-left-radius: 50% 40%;
+    transform-origin: 50% 90%;
+    animation: egg-falling 3s ease-in-out infinite forwards;
+}
+
+/*cubic-bezier(.85, 1.2, .57, 1.3) - je blbý, že se změnou pohybu v Y způsobenou tím beziérem
+ nemůžu načasovat řádně změnu scale*/
+
+@keyframes egg-falling {
+    0% {transform: translateY(-200%) scale(.8, 1.2) rotate(0);}
+    20% {transform: translateY(10%) scale(1, 1) rotate(0); }
+    30% {transform: translateY(-5%) scale(1, 0.95) rotate(0);}
+    35% {transform: translateY(0) scale(1, 1) rotate(0); }
+    40% {transform: translateY(0) scale(1) rotate(-7deg);}
+    45% {transform: translateY(0) scale(1) rotate(7deg); }
+    50% {transform: translateY(0) scale(1) rotate(-6deg);}
+    60% {transform: translateY(0) scale(1, 1) rotate(0);}
+    70% {transform: translateY(0) scale(1, .95) rotate(0); animation-timing-function: cubic-bezier(.21, .43, 0, -0.87);   }
+    100% {transform: translateY(200%) scale(.9, 1.2) rotate(0)}
+}
