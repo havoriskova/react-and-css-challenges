@@ -1,0 +1,118 @@
+.Counter.frame {
+    display: grid;
+    place-items: center;   
+    background-color: white;
+    --counter-animation: counter-background 10s cubic-bezier(0.15, -0.93, 0.84, 1.64) infinite alternate;
+    animation: var(--counter-animation);
+    box-shadow: 0.1rem 0.2rem 0.5rem 0 rgba(0 0 0 / 0.1), inset 0 0 1.5rem .1rem rgba(0 0 0 / .3);
+}
+
+/* .Counter.frame::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0 0 0 / .1);
+    top: 0;
+    pointer-events: none;
+} */
+
+.Counter .numbers-container {
+    background-color: aqua;
+    width: 10rem;
+    height: 5rem;
+    display: flex;
+    gap: .3rem;
+    padding: .6rem;
+    pointer-events: none;
+}
+
+.Counter .numbers {
+    background-color: rgb(8, 176, 176);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+    font-size: 2rem;
+    animation: counter-numbers 1s steps(2) infinite;
+}
+
+.Counter .numbers .zeroToNine {
+    color: white;
+    padding-top: .9rem;
+    border: solid 1px red;
+}
+
+.Counter #counter-input {
+    position: absolute;
+    top: 62%;
+    /* display: none; */
+    z-index: 100;
+}
+
+.Counter label[for="counter-input"] {
+    position: absolute;
+    top: 62%;
+    background-color: aqua;
+    width: 5%;
+    height: 5%;
+    transition: opacity .1s ease,
+    transform .4s ease;
+    cursor: pointer;
+}
+
+.Counter label[for="counter-input"].play {
+clip-path: polygon(0 0, 100% 50%, 0 100%);
+opacity: 0;
+transform: scale(0);
+}
+
+.Counter label[for="counter-input"].stop {
+    opacity: 1;
+    transform: scale(1);
+    background-color: transparent;
+}
+
+.Counter label[for="counter-input"].stop::before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background-color: aqua;
+    left: 0;
+}
+
+.Counter label[for="counter-input"].stop::after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background-color: aqua;
+    right: 0;
+}
+
+.Counter #counter-input:checked ~ label[for="counter-input"].play {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.Counter #counter-input:checked ~ label[for="counter-input"].stop {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.Counter #counter-input:checked ~ .numbers-container .numbers {
+    animation-play-state: paused;
+}
+
+@keyframes counter-background {
+    from {
+        background: rgba(166, 214, 214, 1);
+    }
+
+    to {
+        background: #a6b1e1;
+    }
+}
+

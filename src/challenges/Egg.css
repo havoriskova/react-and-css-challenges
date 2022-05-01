@@ -1,19 +1,20 @@
 .Egg.frame {
 display: grid;
 place-items: center;
+background-color: var(--root-random-color);
 }
 
 .Egg.frame::after {
 content: "";
 position: absolute;
-/* background-color: rgba(0 0 0 / .2); */
+background-color: rgba(0 0 0 / .2);
 width: 50%;
 height: 100%;
 left: 0;
 }
 
 .falling-egg {
-    /* z-index: 2; */
+    z-index: 2;
     background-color: white;
     position: absolute;
     width: 30%;

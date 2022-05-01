@@ -21,9 +21,9 @@ export default function Cursor() {
 // }    }, []
 //     );
 
-let myArray = [];
+let cursorArray = [];
 for (let i = 0; i <= 99; i++) {
-    myArray.push(i);
+    cursorArray.push(i);
 } 
 
 function handleMouseEnter(e) {
@@ -38,7 +38,7 @@ function handleMouseEnter(e) {
 
             <div className="cursor-grid-container">
                 { 
-                myArray.map(function(value, index) {
+                cursorArray.map(function(value, index) {
                     return <div className="cursor-grid-child" key={index} onMouseEnter={handleMouseEnter}>{value}</div>
                  } )  
                 }
