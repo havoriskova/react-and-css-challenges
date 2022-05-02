@@ -2,7 +2,7 @@ import "./Counter.css";
 
 export default function Counter() {
 
-let counterSpanArray = [0, 1, 2, 3];
+let counterSpanArray = ["thousands", "hundreds", "tens", "ones"];
 let counterNumberArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
@@ -12,10 +12,10 @@ let counterNumberArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
             <label for="counter-input" className="play"></label>
             <label for="counter-input" className="stop"></label>
             <div className="numbers-container">
-                {counterSpanArray.map((span, index) => {return (
-                    <span className="numbers" key={index}>
+                {counterSpanArray.map((span) => {return (
+                    <span className="numbers" data-key={span}>
                         {counterNumberArray.map((number, index) => {
-                            return (<span className="zeroToNine" key={index}>{number}</span>)
+                            return (<div className="zeroToNine" key={index}>{number}</div>)
                         })}
                     </span>)
                 })}

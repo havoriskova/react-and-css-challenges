@@ -4,7 +4,6 @@
     background-color: white;
     --counter-animation: counter-background 10s cubic-bezier(0.15, -0.93, 0.84, 1.64) infinite alternate;
     animation: var(--counter-animation);
-    box-shadow: 0.1rem 0.2rem 0.5rem 0 rgba(0 0 0 / 0.1), inset 0 0 1.5rem .1rem rgba(0 0 0 / .3);
 }
 
 /* .Counter.frame::after {
@@ -19,41 +18,62 @@
 
 .Counter .numbers-container {
     background-color: aqua;
+    position: relative;
     width: 10rem;
-    height: 5rem;
+    height: 100px;
     display: flex;
-    gap: .3rem;
-    padding: .6rem;
+    justify-content: space-evenly;
+    border: solid 20px rgb(46, 192, 215);
     pointer-events: none;
+    overflow: hidden; /* funguje i na border! */
 }
 
 .Counter .numbers {
-    background-color: rgb(8, 176, 176);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* background-color: rgb(32, 166, 166); */
+   
     color:white;
-    font-size: 2rem;
-    animation: counter-numbers 1s steps(2) infinite;
+    font-size: 30px;
+    line-height: 100%; /*tj. 30px*/
+    animation: counter-numbers 1s steps(1) infinite;
+} 
+
+.Counter .numbers[data-key="ones"] {
+   transform: translateY(-180px); /*o 61 121 182px*/
+    animation-duration: 10s;
+    /* animation-timing-function: steps(2); */
 }
+
+.Counter .numbers[data-key="tens"] {
+    animation-duration: 100s;
+}
+
+.Counter .numbers[data-key="hundreds"] {
+    animation-duration: 1000s;
+}
+
+.Counter .numbers[data-key="thousands"] {
+    animation-duration: 10000s;
+}
+
+
 
 .Counter .numbers .zeroToNine {
     color: white;
-    padding-top: .9rem;
-    border: solid 1px red;
+    border: solid 1px transparent;
+    padding: 14px 0; /*14 + 14 + 2 + 30 px = 60px 
+    (nezapomenout počítat line-height a né font-size! ) */
 }
 
 .Counter #counter-input {
     position: absolute;
-    top: 62%;
-    /* display: none; */
+    top: 66%;
+    display: none;
     z-index: 100;
 }
 
 .Counter label[for="counter-input"] {
     position: absolute;
-    top: 62%;
+    top: 65%;
     background-color: aqua;
     width: 5%;
     height: 5%;
@@ -116,3 +136,16 @@ transform: scale(0);
     }
 }
 
+@keyframes counter-numbers {
+    0% {transform: translateY(0px);}
+    10% {transform: translateY(-60px);}
+    20% {transform: translateY(-120px)}
+    30% {transform: translateY(-180px)} 
+    40% {transform: translateY(-240px)}   
+    50% {transform: translateY(-300px)}
+    60% {transform: translateY(-360px)}
+    70% {transform: translateY(-420px)}
+    80% {transform: translateY(-480px)}
+    90% {transform: translateY(-540px)}
+    100% {transform: translateY(-600px)}
+}
