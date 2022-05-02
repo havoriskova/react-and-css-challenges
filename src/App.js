@@ -7,7 +7,7 @@ function App() {
 
   let [isLoading, setLoading] = useState(true);
 
-  setTimeout(() => {setLoading(false)}, 3000); 
+  setTimeout(() => {setLoading(false)}, 2000); 
  // useEffect ?? 
 // lehce snížit opacity před úplným zmizením? Renderovat <App/> a <ActualLoader /> současně,
 // a pak jen prohodit opacity ??
@@ -24,7 +24,7 @@ function randomPastelColor() {
         document.querySelector(":root").style.setProperty("--root-random-color", color);
       }
 
-      randomPastelColor(); // initial call
+      // randomPastelColor(); // initial call
 
 
 if (!isLoading) {

@@ -58,6 +58,9 @@
 .cursor-grid-child {
     width: 10%;
     aspect-ratio: 1 / 1;
-    border: solid white 1px;
+    /* border: solid white 1px; */
     font-size: 8px;
+  display: grid;
+  place-items: center;
+    
 }
