@@ -38,8 +38,8 @@ if (!isLoading) {
      <Grid />
       </main>
       <footer className="App-footer">
-        <p>2022 | Coded by <a href="/">Hana Voříšková</a></p>
-        <p>You can check the code on <a href="/">Github</a></p>
+        <p>2022 | Coded by <a href="https://www.linkedin.com/in/hanavoriskova/?locale=en_US">Hana Voříšková</a></p>
+        <p>You can check the code on <a href="https://github.com/havoriskova/react-and-css-challenges">Github</a></p>
       </footer>
     </div>
   );
