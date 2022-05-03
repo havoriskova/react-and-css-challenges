@@ -19,7 +19,7 @@
 .Counter .numbers-container {
     background-color: aqua;
     position: relative;
-    width: 10rem;
+    width: 160px;
     height: 100px;
     display: flex;
     justify-content: space-evenly;
@@ -28,9 +28,22 @@
     overflow: hidden; /* funguje i na border! */
 }
 
+.Counter .numbers-container::after {
+    content: "";
+    position:absolute;
+    width: 26px; /*160 - 40; 120 - 24*4; 24 - 6*2; 12/ 3; 4 - 6px na rozích, a 4px mezery*/
+    height: 40px;
+    top: 10px;
+    left: 5px;
+    background-color: rgb(46, 192, 215);
+    z-index: 1;
+    color: rgb(46, 192, 215);
+    box-shadow: 28px 0 0 0, 56px 0 0 0, 84px 0 0 0;
+}
+
 .Counter .numbers {
     /* background-color: rgb(32, 166, 166); */
-   
+    z-index: 2;
     color:white;
     font-size: 30px;
     line-height: 100%; /*tj. 30px*/

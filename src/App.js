@@ -24,7 +24,7 @@ function randomPastelColor() {
         document.querySelector(":root").style.setProperty("--root-random-color", color);
       }
 
-       randomPastelColor(); // initial call
+      // randomPastelColor(); // initial call, but it is rendering 2x
 
 
 if (!isLoading) {
