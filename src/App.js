@@ -12,10 +12,6 @@ function App() {
 // lehce snížit opacity před úplným zmizením? Renderovat <App/> a <ActualLoader /> současně,
 // a pak jen prohodit opacity ??
 
-useEffect(() =>
-{randomPastelColor()}
-, []); /* takhle s prázdnou dependency array se to spustí jen poprvý -> je to obdoba componentDidMount() */
-
 
 function randomPastelColor() {
      //  funkce na random barvu, co bude různě v elementech, 
@@ -29,7 +25,11 @@ function randomPastelColor() {
         document.querySelector(":root").style.setProperty("--root-random-color", color);
       }
 
-      // randomPastelColor(); // initial call, but it is rendering 2x
+      // randomPastelColor(); // initial call, but it is rendering 2x - SOLVED, musí být v useEffect s prázdnou dependency array:
+
+useEffect(() =>
+  {randomPastelColor()}
+, []); /* takhle s prázdnou dependency array se to spustí jen poprvý -> je to obdoba componentDidMount() */
 
 
 if (!isLoading) {
