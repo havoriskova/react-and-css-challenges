@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import Grid from "./Grid";
 import ActualLoader from "./ActualLoader";
@@ -11,6 +11,11 @@ function App() {
  // useEffect ?? 
 // lehce snížit opacity před úplným zmizením? Renderovat <App/> a <ActualLoader /> současně,
 // a pak jen prohodit opacity ??
+
+useEffect(() =>
+{randomPastelColor()}
+, []); /* takhle s prázdnou dependency array se to spustí jen poprvý -> je to obdoba componentDidMount() */
+
 
 function randomPastelColor() {
      //  funkce na random barvu, co bude různě v elementech, 

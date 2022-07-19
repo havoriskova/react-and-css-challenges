@@ -1,0 +1,19 @@
+.DotWave.frame {
+    display: grid;
+    place-items: center;
+}
+
+.DotWave .circles {
+    background-color: rgba(0 0 0 / .1);
+    width: 100px;
+    aspect-ratio: 1 / 1;
+
+}
+
+
+.DotWave .dots {
+background-color: rgba(49, 38, 198, 0.1);
+width: 10px;
+aspect-ratio: 1 / 1;
+
+}
