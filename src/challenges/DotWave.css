@@ -1,19 +1,40 @@
 .DotWave.frame {
     display: grid;
     place-items: center;
+    background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(255, 255, 255) 1%, var(--root-random-color) 2%);
+}
+
+
+.DotWave .circle {
+    background-color: red;
+    width: 0rem; 
+    aspect-ratio: 1 / 1;
+}
+
+.DotWave .line {
+    position: absolute;
+    height: 2rem;
+    width: 1px;
+    background: green;
+    transform-origin: 50% 0%;
+    /* transform: rotate(90deg); */
+}
+
+.DotWave .dot {
+    width: .5rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: rgba(0 0 0 / 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 .DotWave .circles {
-    background-color: rgba(0 0 0 / .1);
-    width: 100px;
+    position: absolute;
+    background-color: rgba(50 50 50 / .2);
+    width: 0px;
     aspect-ratio: 1 / 1;
-
-}
-
-
-.DotWave .dots {
-background-color: rgba(49, 38, 198, 0.1);
-width: 10px;
-aspect-ratio: 1 / 1;
-
 }

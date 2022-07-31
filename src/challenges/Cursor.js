@@ -39,7 +39,7 @@ function handleMouseEnter(e) {
             <div className="cursor-grid-container">
                 { 
                 cursorArray.map(function(value, index) {
-                    return <div className="cursor-grid-child" key={index} onMouseEnter={handleMouseEnter}>{value}</div>
+                    return <div className="cursor-grid-child" key={index} onPointerEnter={handleMouseEnter}>{value}</div>
                  } )  
                 }
 
