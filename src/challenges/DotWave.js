@@ -3,7 +3,7 @@ import "./DotWave.css";
 
 export default function DotWave() {
 
-   {/* 360: 12 TEČEK = 30 STUPŇŮ
+   /* 360: 12 TEČEK = 30 STUPŇŮ
        360:  15 teček = 24 st - málo
        360: 18 = 20st
        360: 20 TEČEK = 18 STUPŇŮ - málo
@@ -12,7 +12,7 @@ export default function DotWave() {
        360: 40 TEČEK = 9 STUPŇŮ
        360: 50 teček = 7.2 stupňů
        360: 60 TEČEK = 6 STUPŇŮ
-   */}
+   */
 
     let dotWaveCircles = [
     [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], 
@@ -27,12 +27,7 @@ export default function DotWave() {
 
     return (
         <div className="DotWave frame">
-          {/* <div className="circle">
-             <div className="line">
-                <div className="dot"></div>
-             </div>
-
-          </div> */}
+        
            
 
           {dotWaveCircles[0].map((value, index) => {return <div className="circles" key={index} data-key={value} style={{transform:`rotate(${value*3}deg)`, height: "0rem"}}>
@@ -62,10 +57,6 @@ export default function DotWave() {
            {dotWaveCircles[6].map((value, index) => {return <div className="circles" key={index} data-key={value} style={{transform:`rotate(${value*index}deg)`, height:"12rem"}}>
                 <span className="line"><span className="dot" style={{animationDelay:"3s"}}></span></span>
           </div>})}
-           {/* map Circle, a v něm map Dots vč. počtu Dots skrz i ?? 
-           
-           + data-delay přes i ?? v CSS pak přes attr() nebo --var/setProperty
-           + zároveň ale musíš push do array (z + 1, z + 2,..), kde z = array.pop()  */} 
 
           
         </div>
