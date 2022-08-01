@@ -7,6 +7,7 @@ import Cursor from "./challenges/Cursor";
 import Egg from "./challenges/Egg";
 import Counter from "./challenges/Counter";
 import DotWave from "./challenges/DotWave";
+import RangeSlider from "./challenges/RangeSlider";
 
 export default function Grid() {
 
@@ -23,6 +24,7 @@ export default function Grid() {
             <Egg />
             <Counter />
             <DotWave />
+            <RangeSlider />
         </div>
     )
 }

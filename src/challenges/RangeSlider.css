@@ -1,0 +1,59 @@
+.RangeSlider.frame {
+    display: grid;
+    place-items: center;
+    --rangeSliderColor: black;
+}
+
+.RangeSlider .container {
+    height: 60%;
+    width: 60%;
+    display: grid;
+    place-items: center;
+    /* background-color: var(--root-random-color); */
+}
+
+.RangeSlider input[type="range"] {
+    appearance: none;
+    height: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity .2s;
+    width: 100%;
+    border: white solid .2rem;
+    border-radius: 1rem;
+    background-color: var(--rangeSliderColor);
+}
+
+
+.RangeSlider input[type="range"]:hover, .RangeSlider input[type="range"]:focus {
+    opacity: 1;
+    outline: none;
+}
+
+.RangeSlider input[type="range"]::-webkit-slider-thumb{
+    appearance: none;
+    border: .2rem var(--rangeSliderColor) solid;
+    height: 2.5rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: white url("~/public/color-palette.png") center no-repeat;
+    background-size: 90%;
+}
+
+
+.RangeSlider label {
+    font-size: 1.5em;
+    color: white;
+}
+
+.RangeSlider #red {
+    --rangeSliderColor: rgb(245, 93, 93);
+}
+
+.RangeSlider #green {
+    --rangeSliderColor: rgb(64, 202, 64);
+}
+
+.RangeSlider #blue {
+    --rangeSliderColor: rgb(74, 74, 189);
+}
