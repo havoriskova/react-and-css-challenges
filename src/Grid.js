@@ -8,6 +8,7 @@ import Egg from "./challenges/Egg";
 import Counter from "./challenges/Counter";
 import DotWave from "./challenges/DotWave";
 import RangeSlider from "./challenges/RangeSlider";
+import Wave from "./challenges/Wave";
 
 export default function Grid() {
 
@@ -25,6 +26,7 @@ export default function Grid() {
             <Counter />
             <DotWave />
             <RangeSlider />
+            <Wave />
         </div>
     )
 }
