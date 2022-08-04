@@ -51,6 +51,29 @@ height: 1.5rem;
     100% {transform: translateX(0rem);}
 }
 
+
+.Wave .moon {
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at .5rem 0rem, rgba(245, 237, 122, 0.9) .25rem, rgba(200 200 250 / .8) 3rem);
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    animation: wave-moon 5s ease-in-out infinite alternate;
+}
+
+.Wave .moon::after {
+width: 3rem;
+aspect-ratio: 1 / 1;
+border-radius: 50%;
+background-color: black;
+content: "";
+position: absolute;
+left: 1.5rem;
+mix-blend-mode: multiply; /* ?????????????????????????????????*/ 
+}
+
 .Wave .star {
     width: .2rem;
     aspect-ratio: 1 / 1;
@@ -65,4 +88,9 @@ height: 1.5rem;
 @keyframes wave-sparkle {
     0% {opacity: 0}
     100% {opacity: 1}
+}
+
+@keyframes wave-moon {
+    0% {opacity: 1}
+    100% {opacity: .6}
 }

@@ -14,7 +14,7 @@ export default function Wave() {
     return (
         <div className="Wave frame">
             <div className="sky" id="wave-sky">
-                {}
+                <div className="moon"></div>
             </div>
             <div className="waves">
                 <div className="wave-back"></div>
