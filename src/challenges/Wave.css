@@ -1,38 +1,68 @@
 .Wave.frame {
 background: linear-gradient(45deg, rgb(21, 21, 173) 20%, transparent 100%),
             radial-gradient(circle at 60%, purple 50%, black 100%);
-
+/* overflow: visible; */
+--wave-color: black;
+box-shadow: inset 0 0 40px 15px rgba(0 0 0 / .2);
 }
 
 .Wave .waves {
-    background-color: yellow;
-    height: 9rem;
+    /* background-color: yellow; */
+    height: 8rem;
     bottom: 0;
     position: absolute;
-    width: 130%;
+    width: 120%;
 }
 
 .Wave .waves > * {
-height: 3rem;
+height: 1.5rem;
 }
 
 .Wave [class*="wave-"]::after {
     content: "";
     position: absolute;
-    height: 2.5rem;
+    height: 5rem;
     width: 100%;
-    background: radial-gradient(circle at 2rem 0px, rgba(0 0 0 / .5) 2rem, rgba(232, 95, 95, 0.2) 2.1rem),
-                radial-gradient(circle at 4.6rem 0rem, blue .5rem, rgba(200 200 10 / .5) .6rem);
+    background: radial-gradient(circle at 2rem 0rem, transparent 2rem, var(--wave-color) 2.1rem);
+                /* radial-gradient(circle at 4.6rem 0rem, transparent .5rem, rgba(77, 69, 223, 0.5) .6rem) */
     background-repeat: repeat-x;
-    background-size: 5.1rem 5rem;
-    animation: wave-moving 2s ease-in-out alternate infinite;
+    background-size: 4rem 5rem;
+    --wave-color: rgba(87, 29, 204, 0.5);
+    --wave-translateX-a: -2rem;
+    --wave-speed: 5s;
+    animation: wave-moving var(--wave-speed) ease-in-out alternate infinite;
 }
 
 .Wave .wave-middle::after {
-    animation: wave-moving 2s ease-in-out alternate-reverse infinite;
+    animation: wave-moving var(--wave-speed) ease-in-out alternate-reverse infinite;
+    --wave-color: rgba(24, 24, 147, 0.9);
+    --wave-translateX-a: -3rem;
+    --wave-speed: 5.5s;
 } 
 
-/* @keyframes wave-moving {
-    0% {transform: translateX(-1rem)}
-    100% {transform: translateX(1rem);}
-} */
+.Wave .wave-front::after {
+    --wave-color: rgb(24, 24, 100);
+    --wave-translateX-a: -4rem;
+    --wave-speed: 6s;
+}
+
+@keyframes wave-moving {
+    0% {transform: translateX(var(--wave-translateX-a))}
+    100% {transform: translateX(0rem);}
+}
+
+.Wave .star {
+    width: .2rem;
+    aspect-ratio: 1 / 1;
+    animation: wave-sparkle 5s ease-in-out alternate infinite;
+    background-color:rgba(242, 247, 152, 0.7);
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    border-radius: 50%;
+}
+
+@keyframes wave-sparkle {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
