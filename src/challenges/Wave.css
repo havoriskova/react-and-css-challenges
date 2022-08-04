@@ -6,24 +6,25 @@ background: linear-gradient(45deg, rgb(21, 21, 173) 20%, transparent 100%),
 
 .Wave .waves {
     background-color: yellow;
-    height: 8rem;
+    height: 9rem;
     bottom: 0;
     position: absolute;
     width: 130%;
 }
 
 .Wave .waves > * {
-height: 2.1rem;
+height: 3rem;
 }
 
 .Wave [class*="wave-"]::after {
     content: "";
     position: absolute;
-    height: 2.1rem;
+    height: 2.5rem;
     width: 100%;
-    background: radial-gradient(circle at 2rem 0px, green 2rem, red 2.1rem);
+    background: radial-gradient(circle at 2rem 0px, rgba(0 0 0 / .5) 2rem, rgba(232, 95, 95, 0.2) 2.1rem),
+                radial-gradient(circle at 4.6rem 0rem, blue .5rem, rgba(200 200 10 / .5) .6rem);
     background-repeat: repeat-x;
-    background-size: 4rem 4rem;
+    background-size: 5.1rem 5rem;
     animation: wave-moving 2s ease-in-out alternate infinite;
 }
 
