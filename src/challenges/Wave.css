@@ -53,26 +53,30 @@ height: 1.5rem;
 
 
 .Wave .moon {
-    width: 3rem;
+    width: 100px;
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background: radial-gradient(circle at .5rem 0rem, rgba(245, 237, 122, 0.9) .25rem, rgba(200 200 250 / .8) 3rem);
+    /* border-radius: 50%; */
+    background: radial-gradient(circle at 20% 10%, rgba(245, 237, 122, 0.8) 20%, rgba(200 200 250 / .8) 80%);
     position: absolute;
     top: 100px;
     left: 100px;
+    clip-path: url(#Wave-moon-path);
     animation: wave-moon 5s ease-in-out infinite alternate;
+    /* transform: scale(70%); - dělalo to tam čáru vlevo, takže lepší měnit přímo path*/
 }
 
-.Wave .moon::after {
+/*inset .5rem 0rem 2rem rgb(117, 117, 234),*/
+/*radial-gradient(circle at .5rem 0rem, rgba(245, 237, 122, 0.9) .25rem, rgba(200 200 250 / .8) 3rem);
+radial-gradient(circle at 3.6rem 45%, transparent 2rem, red 2.1rem);*/
+
+
+/* .Wave .moon::after {
 width: 3rem;
 aspect-ratio: 1 / 1;
 border-radius: 50%;
-background-color: black;
 content: "";
 position: absolute;
-left: 1.5rem;
-mix-blend-mode: multiply; /* ?????????????????????????????????*/ 
-}
+} */
 
 .Wave .star {
     width: .2rem;
@@ -91,6 +95,7 @@ mix-blend-mode: multiply; /* ?????????????????????????????????*/
 }
 
 @keyframes wave-moon {
-    0% {opacity: 1}
-    100% {opacity: .6}
+    0% {opacity: 1;}
+    100% {opacity: .8; 
+    }
 }

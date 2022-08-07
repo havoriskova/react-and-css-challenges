@@ -14,7 +14,18 @@ export default function Wave() {
     return (
         <div className="Wave frame">
             <div className="sky" id="wave-sky">
-                <div className="moon"></div>
+                <div className="moon">
+                    <svg width="80" height="80">
+                         <defs>
+                          <clipPath id="Wave-moon-path">
+                            <path d="M70,10 
+                            Q 40 40, 70 70 
+                            A 35 35 0 1 1, 70, 10 
+                            Z" />
+                          </clipPath>
+                        </defs>
+                     </svg>
+                </div>
             </div>
             <div className="waves">
                 <div className="wave-back"></div>
