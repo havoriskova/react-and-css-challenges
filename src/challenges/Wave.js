@@ -3,12 +3,19 @@ import "./Wave.css";
 
 export default function Wave() {
 
-    useEffect(() => {
+     useEffect(() => {
+        for (let i = 0; i < 50; i++) {
         let star = document.createElement("div");
         star.classList.add("star");
+        star.style.left= `${Math.floor(Math.random()*100)}%`;
+        star.style.top = `${Math.floor(Math.random()*80)}%`;
+        star.style.animationDelay= `${Math.floor(Math.random()*10)}s`;
+
         let sky = document.getElementById("wave-sky");
         sky.append(star);
+        }
     }, []);
+
 
 
     return (

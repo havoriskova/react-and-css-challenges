@@ -4,6 +4,7 @@ background: linear-gradient(45deg, rgb(21, 21, 173) 20%, transparent 100%),
 /* overflow: visible; */
 --wave-color: black;
 box-shadow: inset 0 0 40px 15px rgba(0 0 0 / .2);
+animation: wave-frame 10s ease alternate infinite;
 }
 
 .Wave .waves {
@@ -27,7 +28,7 @@ height: 1.5rem;
                 /* radial-gradient(circle at 4.6rem 0rem, transparent .5rem, rgba(77, 69, 223, 0.5) .6rem) */
     background-repeat: repeat-x;
     background-size: 4rem 5rem;
-    --wave-color: rgba(87, 29, 204, 0.5);
+    --wave-color: rgb(77, 34, 163); /*nemůže být rgba, by prosvítaly hvězdy*/
     --wave-translateX-a: -2rem;
     --wave-speed: 5s;
     animation: wave-moving var(--wave-speed) ease-in-out alternate infinite;
@@ -56,13 +57,14 @@ height: 1.5rem;
     width: 100px;
     aspect-ratio: 1 / 1;
     /* border-radius: 50%; */
-    background: radial-gradient(circle at 20% 10%, rgba(245, 237, 122, 0.8) 20%, rgba(200 200 250 / .8) 80%);
+    background: radial-gradient(circle at 20% 10%, rgb(245, 237, 122) 20%, rgb(247, 247, 193) 35%, rgb(200 200 250) 60%);
     position: absolute;
     top: 100px;
     left: 100px;
     clip-path: url(#Wave-moon-path);
-    animation: wave-moon 5s ease-in-out infinite alternate;
+    animation: wave-moon 5s ease-in-out infinite alternate, wave-moon-move 2s ease-in-out infinite alternate;
     /* transform: scale(70%); - dělalo to tam čáru vlevo, takže lepší měnit přímo path*/
+    z-index: 10;
 }
 
 /*inset .5rem 0rem 2rem rgb(117, 117, 234),*/
@@ -87,6 +89,7 @@ position: absolute;
     left: 50px;
     top: 50px;
     border-radius: 50%;
+    opacity: 0; /*aby se ukázaly až při animaci, proto i při animaci deš z 0 na 1*/
 }
 
 @keyframes wave-sparkle {
@@ -95,7 +98,16 @@ position: absolute;
 }
 
 @keyframes wave-moon {
-    0% {opacity: 1;}
-    100% {opacity: .8; 
-    }
+    0% {filter: grayscale(0) brightness(100%)}
+    100% {filter: grayscale(50%) brightness(70%)}
+}
+
+@keyframes wave-moon-move {
+    0% {transform: rotate(0);}
+    100% {transform: rotate(7deg);}
+}
+
+@keyframes wave-frame {
+    0%, 40% {filter: grayscale(0) brightness(100%)}
+    100% {filter: grayscale(60%) brightness(80%)}
 }
