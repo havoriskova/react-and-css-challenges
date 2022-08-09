@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap');
+
+.Thermostat.frame {
+    background: var(--root-random-color);
+    display: grid;
+    place-items: center;
+    --Thermostat-primary-color: rgb(228, 238, 209);
+    --Thermostat-box-shadow: .2rem .2rem .5rem .2rem rgba(0 0 0 / .5);
+   font-family: 'Merriweather', serif;
+   --Thermostat-transition-speed: .5s;
+}
+
+.Thermostat .thermostat-base {
+    position: absolute;
+    width: 70%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: grid;
+    place-items:center;
+    background: linear-gradient(to right, rgb(63, 169, 218), rgb(207, 66, 184));
+    border: solid var(--Thermostat-primary-color) 1.5em;
+    box-shadow: inset var(--Thermostat-box-shadow);
+    /*overflow: hidden; - pokud chci pseudoelement "uříznout" přes overflow, zůstává tam dole čára, páč overflow se řídí PADDING-BOXEM,
+    proto musím použít clip-path <3 !!!!! ale zároveň to znamená, že mi to neudělá offset stín */
+    clip-path: inset(0 round 50%); /*o kolik chceš vystřihnout od krajů + border-radius*/
+    cursor: pointer;
+    
+}
+
+.Thermostat .thermostat-base::after {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    width: 1%;
+    aspect-ratio: 1/1;
+    border-width: 15rem; /*tady jsem s % nepochodila :( */
+    border-style: solid;
+    border-color: transparent transparent var(--Thermostat-primary-color) transparent;
+}
+
+.Thermostat .control {
+    z-index: 10;
+    width: 65%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--Thermostat-primary-color);
+    box-shadow: var(--Thermostat-box-shadow);
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.Thermostat .control > * {
+    position: absolute;
+}
+
+.Thermostat .indicator {
+    width: .7rem;
+    height: 82%;
+    background: transparent;
+    box-shadow: 0 -1.1rem 0 -.2rem rgba(0 0 0 / .5); /*při dokončení se tam objevuje lehce ta linka
+    a nefunguje mi negativní spread radius, LEDAŽE použiju i -webkit a -moz !!! */
+    -webkit-box-shadow: 0 -1.1rem 0 -.2rem rgba(0 0 0 / .5);
+    -moz-box-shadow: 0 -1.1rem 0 -.2rem rgba(0 0 0 / .5);
+    transition: transform var(--Thermostat-transition-speed) ease-in-out;
+}
+
+.Thermostat .temp-up {
+    top: 15%;
+}
+
+.Thermostat .room {
+    bottom: 15%;
+}
+
+.Thermostat [class*="temp-main-"] {
+    font-size: 3rem;
+    background:linear-gradient(to right, rgb(63, 169, 218), rgb(207, 66, 184));
+    color: transparent;
+    background-clip: text;
+    transition: opacity var(--Thermostat-transition-speed) ease-in-out,
+                transform var(--Thermostat-transition-speed) ease-in-out;
+}
+
+.Thermostat [class*="temp-main-"] span {
+    position: absolute;
+    font-size: 2rem;
+    color: rgb(207, 66, 184);
+    top: 0;
+   
+}
+
+.Thermostat .temp-main-one {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.Thermostat .temp-main-two {
+    opacity: 0;
+    transform: translateX(4rem) scale(0);
+}
+
+
+.Thermostat .thermostat-base:hover .indicator {
+    transform: rotate(30deg);
+}
+
+.Thermostat .thermostat-base:hover .temp-main-one {
+    opacity: 0;
+    transform: translateX(-4rem) scale(0);
+}
+
+.Thermostat .thermostat-base:hover .temp-main-two {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+
+}

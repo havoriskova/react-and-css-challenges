@@ -9,6 +9,8 @@ import Counter from "./challenges/Counter";
 import DotWave from "./challenges/DotWave";
 import RangeSlider from "./challenges/RangeSlider";
 import Wave from "./challenges/Wave";
+import Thermostat from "./challenges/Thermostat";
+
 
 export default function Grid() {
 
@@ -27,6 +29,7 @@ export default function Grid() {
             <DotWave />
             <RangeSlider />
             <Wave />
+            <Thermostat />
         </div>
     )
 }
