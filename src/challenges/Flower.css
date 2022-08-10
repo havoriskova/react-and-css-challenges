@@ -1,0 +1,48 @@
+.Flower.frame {
+    background-color: var(--root-random-color);
+    display: grid;
+    place-items: center;
+    --Flower-speed: 7s;
+}
+
+.Flower .pollen {
+    position: absolute;
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: orange;
+    /* animation: Flower-pollen-size var(--Flower-speed) infinite forwards; */
+    opacity: 0;
+}
+
+.Flower .leaves-container {
+    position: absolute;
+    width: 70%;
+    aspect-ratio: 1 / 1;
+    border: black 1px solid;
+    /* animation: Flower-rotate var(--Flower-speed) infinite forwards; */
+    display: grid;
+    place-items: center;
+}
+
+.Flower .leaf {
+    background-color: rgba(200 200 200 / .5);
+    width:  20%;
+    height: 50%;
+    position: absolute;
+    /* clip-path: path("M 50, 50 L 100, 100 L 80, 100 Z"); clip-path in % ? */
+}
+
+
+@keyframes Flower-pollen-size {
+    0%, 20% {transform: scale(0); opacity: 1}
+    30% {transform: scale(1.2)}
+    35%, 80% {transform: scale(1);}
+    85% {transform: scale(1.2);}
+    100% {transform: scale(0); opacity: 1}
+}
+
+@keyframes Flower-rotate {
+    0%, 20% {transform: rotate(0)}
+    100% {transform: rotate(360deg);}
+}

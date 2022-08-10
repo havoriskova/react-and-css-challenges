@@ -10,6 +10,7 @@ import DotWave from "./challenges/DotWave";
 import RangeSlider from "./challenges/RangeSlider";
 import Wave from "./challenges/Wave";
 import Thermostat from "./challenges/Thermostat";
+import Flower from "./challenges/Flower";
 
 
 export default function Grid() {
@@ -30,6 +31,7 @@ export default function Grid() {
             <RangeSlider />
             <Wave />
             <Thermostat />
+            <Flower />
         </div>
     )
 }
