@@ -3,19 +3,18 @@ import "./Flower.css";
 
 export default function Flower() {
 
-let leaves = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// 16 lístků, value pro hodnotu R barvy v rgba formátu
+// z indexu vypočítat úhel, tj. 360/16 = 22.5deg
+let leaves = [1, 3, 5, 7, 9, 11, 9, 7, 5, 7, 9, 11, 9, 7, 5, 3];
 
-// useEffect(()=> {
-//     for (let i = 0; i < 16; i++) {
-//         leaves.push(i);
-//     }
-// }, []); - tady se tomu nelíbí, že je prázdná dependency array :/ 
+// 
 
     return (
         <div className="Flower frame">
             <div className="pollen"></div>
             <div className="leaves-container">
-                {leaves.map(leaf => {return (<div className="leaf" key={leaf}></div>)})}
+                {leaves.map((value, index) => {return (<div className="leaf" key={value}
+                style={{transform: `translate(-50%, -50%) rotate(${index * 22.5}deg)`, backgroundColor: `rgba(${value*2}0, 200,200, .7`}}></div>)})}
             </div>
         </div>
     )

@@ -5,44 +5,65 @@
     --Flower-speed: 7s;
 }
 
+/* .Flower.frame::before, .Flower.frame::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(113, 209, 233, 0.25);
+    width: 50%;
+    height: 100%;
+    left: 0;
+}
+
+.Flower.frame::after {
+width: 100%;
+height: 50%;
+top: 0;
+} */
+
 .Flower .pollen {
     position: absolute;
-    width: 10%;
+    width: 20%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    background-color: orange;
-    /* animation: Flower-pollen-size var(--Flower-speed) infinite forwards; */
+    background-color: var(--root-random-color);
+    animation: Flower-pollen-size var(--Flower-speed) infinite forwards;
     opacity: 0;
+    z-index: 20;
 }
 
 .Flower .leaves-container {
     position: absolute;
-    width: 70%;
+    width: 50%;
     aspect-ratio: 1 / 1;
-    border: black 1px solid;
-    /* animation: Flower-rotate var(--Flower-speed) infinite forwards; */
+    /* border: black 1px solid; */
+    animation: Flower-rotate var(--Flower-speed) infinite forwards;
     display: grid;
     place-items: center;
 }
 
 .Flower .leaf {
     background-color: rgba(200 200 200 / .5);
-    width:  50px;
-    height: 50px;
     position: absolute;
-    border-radius: 2px 50px;
+    aspect-ratio: 1 / 1;
+    width: 50%;
+    border-radius: 4% 90%;
+    transform-origin: bottom right;
 }
 
+.Flower .leaf:nth-child(2n+2) {
+    z-index: 2; /*nth-child change together with the lenght of array leaves */
+}
 
 @keyframes Flower-pollen-size {
     0%, 20% {transform: scale(0); opacity: 1}
-    30% {transform: scale(1.2)}
-    35%, 80% {transform: scale(1);}
-    85% {transform: scale(1.2);}
+    30% {transform: scale(1.1)}
+    35%, 60% {transform: scale(1);}
+    65% {transform: scale(1.1);}
     100% {transform: scale(0); opacity: 1}
 }
 
 @keyframes Flower-rotate {
-    0%, 20% {transform: rotate(0)}
-    100% {transform: rotate(360deg);}
+    0% {transform: rotate(0) scale(.3)} 
+    45%, 55% {transform: rotate(.55turn) scale(1)}
+    100% {transform: rotate(1turn) scale(.3)} 
 }
