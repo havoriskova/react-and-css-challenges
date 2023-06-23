@@ -24,14 +24,14 @@ export default function Grid() {
             <Circles />
             <Blob />
             <Cube />
-            <Cursor />
-            <Egg />
-            <Counter />
+            <Flower />
             <DotWave />
             <RangeSlider />
             <Wave />
+            <Cursor />
+            <Egg />
+            <Counter />
             <Thermostat />
-            <Flower />
         </div>
     )
 }
